@@ -1,7 +1,5 @@
 class SongsController < ApplicationController
 
-
-
   def index
     @songs = Song.all
   end
@@ -20,6 +18,28 @@ class SongsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @song = Song.find(params["id"])
+  end
+
+  def update
+    @song = Song.find(params["id"])
+
+    if @song.update(song_params)
+      redirect_to songs_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    song = Song.find(params["id"])
+    song.destroy
+    redirect_to songs_path, notice: "Deleted song #{song.name}"
+  end
+
+
 
   private
   def song_params
