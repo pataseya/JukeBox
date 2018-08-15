@@ -39,8 +39,6 @@ class SongsController < ApplicationController
     redirect_to songs_path, notice: "Deleted song #{song.name}"
   end
 
-
-
   private
   def song_params
     params.require(:song).permit(:name, :duration)
