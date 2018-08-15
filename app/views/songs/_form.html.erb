@@ -3,6 +3,11 @@
 <%= form_for song do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
+
+
+<%= form.select :artist_id, artists  %>
+
+
   <br>
   <%= form.label :duration %>
   <%= form.number_field :duration %>

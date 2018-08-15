@@ -1,12 +1,13 @@
 class SongsController < ApplicationController
 
+
   def index
     @songs = Song.all
   end
 
   def new
     @song = Song.new
-
+    artist_options
   end
 
   def create
@@ -21,6 +22,7 @@ class SongsController < ApplicationController
 
   def edit
     @song = Song.find(params["id"])
+    artist_options
   end
 
   def update
@@ -41,6 +43,11 @@ class SongsController < ApplicationController
 
   private
   def song_params
-    params.require(:song).permit(:name, :duration)
+    params.require(:song).permit(:name, :duration, :artist_id)
+  end
+
+  def artist_options
+
+    @artists = Artist.all.map { |a| [a.name, a.id ]}
   end
 end
