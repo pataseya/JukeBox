@@ -1,3 +1,6 @@
+<div class="container">
+
+
 <%= render "shared/error_messages", model: song %>
 
 <%= form_for song do |form| %>
@@ -13,5 +16,6 @@
   <%= form.number_field :duration %>
   <br>
   <br>
-  <%= form.submit "Save" %>
+   <%= form.submit "Save", class: "btn btn-primary" %>
 <% end %>
+</div>

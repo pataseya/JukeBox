@@ -47,7 +47,6 @@ class SongsController < ApplicationController
   end
 
   def artist_options
-
     @artists = Artist.all.map { |a| [a.name, a.id ]}
   end
 end
